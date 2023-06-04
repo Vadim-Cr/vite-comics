@@ -2,6 +2,13 @@
 
 export default {
     name: "AppHeader",
+    data() {
+        return {
+            navList: [
+                "CHARACTER", "COMICS", "MOVIES", "TV", "GAMES", "COLLECTIBLES", "VIDEOS", "FANS", "NEWS", "SHOP"
+            ],
+        }
+    }
 }
 
 </script>
@@ -12,29 +19,9 @@ export default {
             <img src="../assets/images/dc-logo.png" alt="">
             <div class="subContainerHeader">
                 <ul>
-                    <li>
+                    <li v-for="(item, index) in navList" :key="index">
                         <a href="">
-                            link N..
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            link N..
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            link N..
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            link N..
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            link N..
+                            {{ item }}
                         </a>
                     </li>
                 </ul>
@@ -78,6 +65,13 @@ ul {
         a {
             text-decoration: none;
             color: $fontPrimary;
+            font-size: 0.75rem;
+
+            &:hover {
+                color: $primary;
+                border-bottom: 3px solid $primary;
+                padding-bottom: 3.8rem;
+            }
         }
 
     }

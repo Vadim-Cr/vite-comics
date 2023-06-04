@@ -6,26 +6,90 @@ export default {
         return {
             images: [
                 {
-                    url: "../assets/images/buy-comics-digital-comics.png",
+                    url: "src/assets/images/buy-comics-digital-comics.png",
                     divContent: "DIGITAL COMICS",
                 },
                 {
-                    url: "../assets/images/buy-comics-merchandise.png",
+                    url: "src/assets/images/buy-comics-merchandise.png",
                     divContent: "DC MERCHANDISE",
                 },
                 {
-                    url: "../assets/images/buy-comics-subscriptions.png",
+                    url: "src/assets/images/buy-comics-subscriptions.png",
                     divContent: "SUBSCRIPTION",
                 },
                 {
-                    url: "../assets/images/buy-comics-shop-locator.png",
+                    url: "src/assets/images/buy-comics-shop-locator.png",
                     divContent: "COMIC SHOP LOCATOR",
                 },
                 {
-                    url: "../assets/images/buy-dc-power-visa.svg",
+                    url: "src/assets/images/buy-dc-power-visa.svg",
                     divContent: "DC POWER VISA",
                 },
             ],
+            footerList: [
+                {
+                    name: "DC COMICS",
+                    nameList: [
+                        "Characters",
+                        "comics",
+                        "movies",
+                        "TV",
+                        "Games",
+                        "Videos",
+                        "News"
+                    ],
+                },
+                {
+                    name: "SHOP",
+                    nameList: [
+                        "Shop DC",
+                        "Shop DC Collectibles",
+                    ],
+                },
+                {
+                    name: "DC",
+                    nameList: [
+                        "Terms Of Use",
+                        "Privacy policy (NEW)",
+                        "Add Choice",
+                        "Advertising",
+                        "Jobs",
+                        "Subscriptions",
+                        "Talent Workshops",
+                        "CPSC Certificates",
+                        "Ratings",
+                        "Shop Help",
+                        "Contact Us"
+                    ],
+                },
+                {
+                    name: "SITES",
+                    nameList: [
+                        "DC",
+                        "MAD Magazine",
+                        "DC Kids",
+                        "DC Universe",
+                        "DC Power Visa",
+                    ],
+                }
+            ],
+            socials: [
+                {
+                    url: "src/assets/images/footer-facebook.png",
+                },
+                {
+                    url: "src/assets/images/footer-twitter.png",
+                },
+                {
+                    url: "src/assets/images/footer-youtube.png",
+                },
+                {
+                    url: "src/assets/images/footer-pinterest.png",
+                },
+                {
+                    url: "src/assets/images/footer-periscope.png",
+                },
+            ]
         };
     },
 }
@@ -46,9 +110,35 @@ export default {
                 </ul>
             </div>
         </div>
-        <div class="subContainerFooter"></div>
-        <div class="subContainerFooter"></div>
-        <div class="subContainerFooter"></div>
+        <div class="containerFooterTwo">
+            <div class="subContainerFooterTwo">
+                <div class="scfto">
+                    <ul v-for="(listItem, indx) in footerList" :key="indx">
+                        <a href="#">{{ listItem.name }}</a>
+                        <li v-for="(item, i) in listItem.nameList" :key="i">
+                            <a href="#">{{ item }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <img src="../assets/images/dc-logo-bg.png" alt="">
+            </div>
+        </div>
+        <div class="subContainerFooterThree">
+            <div class="subContainerFooterThree">
+                <div class="scftl">
+                    <button>SIGN-UP NOW !</button>
+                </div>
+                <div class="scftr">
+                    <ul>
+                        FOLLOW US
+                        <li v-for="(media, ind) in socials" :key="ind">
+                            <img :src="media.url" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="subContainerFooterFour"></div>
     </footer>
 </template>
 
@@ -68,35 +158,133 @@ footer {
 .containerFooterOne {
     height: 7rem;
     background-color: $primary;
+
+    .subContainerFooterOne {
+        width: 70%;
+        margin: auto;
+        align-items: center;
+        height: 100%;
+
+        ul {
+            list-style: none;
+            height: 100%;
+            @include center-between;
+
+            li {
+                @include center;
+                margin: 0 1rem;
+
+                img {
+                    object-fit: contain;
+                    height: 5rem;
+                    width: 5rem;
+                }
+
+                &:hover {
+                    background-color: #0564bc;
+                    cursor: pointer;
+                }
+
+            }
+        }
+    }
 }
 
-.subContainerFooterOne {
-    width: 70%;
-    margin: auto;
-    align-items: center;
-    height: 100%;
-}
 
-ul {
-    list-style: none;
-    height: 100%;
-    @include center-between;
+.containerFooterTwo {
+    background-image: url(../assets/images/footer-bg.jpg);
+    height: 25rem;
 
-    li {
-        @include center;
-        margin: 0 1rem;
+    .subContainerFooterTwo {
+        @include widthCenter;
+        @include center-between;
+        align-items: center;
+        position: relative;
+        height: 100%;
+        z-index: 1;
 
-        img {
-            object-fit: contain;
-            height: 5rem;
-            width: 5rem;
+        .scfto {
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+
+
+            ul {
+                list-style: none;
+                font-weight: bold;
+                font-size: 1.5rem;
+                margin-right: 1rem;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+                li {
+                    font-weight: 600;
+                    font-size: 0.75rem;
+                    margin-right: 1rem;
+
+                    a {
+                        text-decoration: none;
+                        color: $fontPrimary;
+                    }
+                }
+            }
         }
 
-        &:hover {
-            background-color: #0564bc;
-            cursor: pointer;
+        img {
+            position: absolute;
+            z-index: -1;
+            top: -20%;
+            left: 55%;
+        }
+    }
+}
+
+.subContainerFooterThree {
+    background-color: $secondary;
+    height: 10rem;
+
+    .subContainerFooterThree {
+        @include center-between;
+        @include widthCenter;
+        z-index: 2;
+
+        .scftl {
+            button {
+                background-color: #0564bc00;
+                padding: 1rem;
+                color: white;
+                font-size: 1.1rem;
+                border: 3px solid $primary;
+            }
+        }
+
+        .scftr {
+            z-index: 2;
+
+            ul {
+                @include center;
+                list-style: none;
+                color: $primary;
+                font-weight: 600;
+                font-size: 1.5rem;
+
+                li {
+                    padding: 0 1rem;
+                }
+            }
         }
 
     }
+
+}
+
+.subContainerFooterFour {
+    background-color: $tertiary;
+    height: 10rem;
 }
 </style>
