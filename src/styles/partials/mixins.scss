@@ -1,0 +1,10 @@
+// * FLEX display center
+
+@mixin center {
+    display: flex;
+}
+
+@mixin center_between {
+    display: flex;
+    justify-content: space-between;
+}
