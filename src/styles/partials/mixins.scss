@@ -15,3 +15,9 @@
     width: 70%;
     margin: auto;
 }
+
+@mixin textCardMain {
+    color: white;
+    margin-top: 0.25rem;
+    font-weight: 600;
+}

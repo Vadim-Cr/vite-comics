@@ -120,7 +120,7 @@ export default {
                         </li>
                     </ul>
                 </div>
-                <img src="../assets/images/dc-logo-bg.png" alt="">
+                <!-- <img src="../assets/images/dc-logo-bg.png" alt=""> -->
             </div>
         </div>
         <div class="subContainerFooterThree">
@@ -133,6 +133,7 @@ export default {
                         FOLLOW US
                         <li v-for="(media, ind) in socials" :key="ind">
                             <img :src="media.url" alt="">
+                            <a href="#"></a>
                         </li>
                     </ul>
                 </div>
@@ -192,7 +193,10 @@ footer {
 
 
 .containerFooterTwo {
-    background-image: url(../assets/images/footer-bg.jpg);
+    background-image: url(../assets/images/footer-bg.jpg), url(../assets/images/dc-logo-bg.png);
+    background-position: center, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, auto;
     height: 25rem;
 
     .subContainerFooterTwo {
@@ -201,7 +205,7 @@ footer {
         align-items: center;
         position: relative;
         height: 100%;
-        z-index: 1;
+
 
         .scfto {
             padding: 1rem;
@@ -235,12 +239,7 @@ footer {
             }
         }
 
-        img {
-            position: absolute;
-            z-index: -1;
-            top: -20%;
-            left: 55%;
-        }
+
     }
 }
 
@@ -275,6 +274,13 @@ footer {
 
                 li {
                     padding: 0 1rem;
+
+                    img:hover {
+                        border: 3px solid $primary;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        background-color: white;
+                    }
                 }
             }
         }
