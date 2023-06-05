@@ -63,9 +63,14 @@ main {
             img {
                 object-fit: contain;
                 height: 12rem;
+
+                &:hover {
+                    filter: brightness(1.35);
+                    border: 3px solid $primary;
+                }
             }
         }
-    }
 
+    }
 }
 </style>
